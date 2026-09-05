@@ -42,11 +42,11 @@ class ConverterBase(*bases):
         core_model = copy.deepcopy(core_model)
         if self.debug:
             print("Before export:")
-            visualize_graph(core_model.graph.get_internal_graph(copy=False), show_labels=True)
+            # visualize_graph(core_model.graph.get_internal_graph(copy=False), show_labels=True)
         core_model = self._pre_export(core_model, name)
         if self.debug:
             print("After pre export:")
-            visualize_graph(core_model.graph.get_internal_graph(copy=False), show_labels=True)
+            # visualize_graph(core_model.graph.get_internal_graph(copy=False), show_labels=True)
         model: Model = self._export(core_model, name)
         model = self._post_export(model, name)
         if log_path is not None and logger is not None:
@@ -65,11 +65,11 @@ class ConverterBase(*bases):
         core_model: CoreModel = self._import(model)
         if self.debug:
             print("After import:")
-            visualize_graph(core_model.graph.get_internal_graph(copy=False), show_labels=True)
+            # visualize_graph(core_model.graph.get_internal_graph(copy=False), show_labels=True)
         self._post_import(core_model)
         if self.debug:
             print("After post impport:")
-            visualize_graph(core_model.graph.get_internal_graph(copy=False), show_labels=True)
+            # visualize_graph(core_model.graph.get_internal_graph(copy=False), show_labels=True)
         if log_path is not None and logger is not None:
             logger.save_to_file(log_path)
             logger.close()
