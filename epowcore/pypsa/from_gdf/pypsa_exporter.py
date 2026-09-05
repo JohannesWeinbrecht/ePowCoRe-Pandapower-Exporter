@@ -236,8 +236,8 @@ class PyPSAExporter:
         sign = -1 if load.active_power >= 0 else 1
 
         MappingCreator.add_mapping(
+            {("Load", str(load.uid))},
             {load},
-            set(("Load", str(load.uid))),
         )
 
         load_name = self.pypsa_model.components.loads.add(
